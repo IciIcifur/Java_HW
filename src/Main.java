@@ -1,19 +1,18 @@
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
+        System.out.println("NEW MATRIX");
+        Matrix a = new Matrix();
 
-        System.out.println("Enter matrix boundaries:");
 
-        String[] nums = in.nextLine().split(" ");
+        /*
+1 2-1i 7
+5 3 1+2i
+6 4 1
 
-        if (nums.length != 2) {
-            System.out.println("Two numbers expected.");
-            return;
-        }
-        Matrix a = new Matrix(Integer.parseInt(nums[0]), Integer.parseInt(nums[1]));
-        a.initMatrix();
-        a.showMatrix(a);
+
+1 1 1-1i
+1 2 2+1i
+0 0 1
+*/
     }
 }

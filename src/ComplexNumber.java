@@ -24,11 +24,11 @@ public class ComplexNumber {
         }
     }
 
-    ComplexNumber sum(ComplexNumber num1, ComplexNumber num2) {
+    static ComplexNumber sum(ComplexNumber num1, ComplexNumber num2) {
         return new ComplexNumber(num1.a + num2.a, num1.b + num2.b);
     }
 
-    ComplexNumber multiplication(ComplexNumber num1, ComplexNumber num2) {
+    static ComplexNumber multiplication(ComplexNumber num1, ComplexNumber num2) {
         return new ComplexNumber(num1.a * num2.a - num1.b * num2.b, num1.a * num2.b + num1.b * num2.a);
     }
 }

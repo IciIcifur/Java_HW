@@ -18,6 +18,7 @@ public class Matrix {
         String[] nums = in.nextLine().split(" ");
         if (nums.length != 2) {
             System.out.println("Two numbers were expected.");
+            n = -1;
             return;
         }
 
@@ -31,6 +32,7 @@ public class Matrix {
 
             if (line.length != m) {
                 System.out.println("Incorrect input. " + m + " numbers separated by ' ' expected.");
+                n = -1;
                 return;
             }
 

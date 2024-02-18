@@ -1,5 +1,5 @@
 # Operations on matrices
-_Working with imaganary numbers is possible._
+_Working with imagenary numbers is possible._
 
 ### Two classes are provided:
 - ComplexNumber

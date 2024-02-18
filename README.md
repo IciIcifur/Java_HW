@@ -9,4 +9,4 @@ _Working with imaganary numbers is possible._
 - sum of matrices
 - multiplication of matrices
 - matrix transposition
-- matrix determinant _*_
+- 5 saved matrices

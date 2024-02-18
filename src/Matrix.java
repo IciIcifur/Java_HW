@@ -17,23 +17,19 @@ public class Matrix {
         System.out.println("Enter matrix boundaries:");
         String[] nums = in.nextLine().split(" ");
         if (nums.length != 2) {
-            System.out.println("Two numbers were expected.");
-            n = -1;
-            return;
+            throw new RuntimeException("2 numbers were expected.");
         }
 
         n = Integer.parseInt(nums[0]);
         m = Integer.parseInt(nums[1]);
         matrix = new ComplexNumber[n][m];
 
-        System.out.println("Imaginary numbers of the type '5+2i' or '1-3i' allowed. Enter matrix " + n + "*" + m + ":");
+        System.out.println("Imaginary numbers of the type 'a+-bi' allowed. Enter matrix " + n + "*" + m + ":");
         for (int i = 0; i < n; i++) {
             String[] line = in.nextLine().split(" ");
 
             if (line.length != m) {
-                System.out.println("Incorrect input. " + m + " numbers separated by ' ' expected.");
-                n = -1;
-                return;
+                throw new RuntimeException("Incorrect input. " + m + " numbers separated by ' ' expected.");
             }
 
             matrix[i] = new ComplexNumber[m];
@@ -46,9 +42,9 @@ public class Matrix {
 
     static Matrix sumMatrices(Matrix a, Matrix b) {
         if (a.n != b.n || a.m != b.m) {
-            System.out.println("Only matrices with equal boundaries can be summed up!");
-            return a;
+            throw new RuntimeException("Only matrices with equal boundaries can be summed up!");
         }
+
         Matrix c = new Matrix(a.n, a.m);
         for (int i = 0; i < c.n; i++) {
             for (int j = 0; j < c.m; j++) {
@@ -60,15 +56,14 @@ public class Matrix {
 
     static Matrix multiplyMatrices(Matrix a, Matrix b) {
         if (a.m != b.n) {
-            System.out.println("Incorrect matrices' sizes for multiplication!");
-            return a;
+            throw new RuntimeException("Incorrect matrices' sizes for multiplication!");
         }
+
         Matrix c = new Matrix(a.n, b.m);
 
         for (int i = 0; i < c.n; i++) {
             for (int j = 0; j < c.m; j++) {
                 c.matrix[i][j] = new ComplexNumber(0, 0);
-
                 for (int k = 0; k < a.m; k++) {
                     c.matrix[i][j] = ComplexNumber.sum(c.matrix[i][j], ComplexNumber.multiplication(a.matrix[i][k], b.matrix[k][j]));
                 }
@@ -85,17 +80,6 @@ public class Matrix {
             }
         }
         return c;
-    }
-
-    static ComplexNumber findDeterminant(Matrix a) {
-        ComplexNumber d = new ComplexNumber(0, 0);
-
-        if (a.n != a.m) {
-            System.out.println("Determinant is not possible for non-square matrix!");
-            return d;
-        }
-
-        return d;
     }
 
     static void showMatrix(Matrix a) {
